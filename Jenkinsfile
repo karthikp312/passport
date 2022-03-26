@@ -40,6 +40,14 @@ pipeline{
               }
             }
           }
+     stage("Quality gate") {
+            steps {
+               script{
+                  flag_email=env.STAGE_NAME
+            }
+                waitForQualityGate abortPipeline: true
+            }
+        }
      
     
     
