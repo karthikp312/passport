@@ -42,25 +42,7 @@ pipeline{
           }
      
     
-     stage('Deploy to artifactory'){
-        steps{
-           script{
-                  flag_email=env.STAGE_NAME
-            }
-        rtUpload(
-         serverId : 'ARTIFACTORY_SERVER',
-         spec :'''{
-           "files" :[
-           {
-           "pattern":"target/*.jar",
-           "target":"art-doc-devo-loc"
-           }
-           ]
-         }''',
-         
-      )
-      }
-     }
+    
   }
         post {  
          always {  
